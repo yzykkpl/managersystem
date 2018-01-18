@@ -65,14 +65,3 @@ function userReq(){
 		}))
 	})
 }
-
-// if($("input[type='checkbox']").is(':checked') ){
-// return true;
-// }else{
-// alert("您还没选择")
-// return false;
-// }
-// var username = document.getElementById("YH1").checked;
-// var jsons = JSON.stringify(value);
-// //console.log(jsons);
-

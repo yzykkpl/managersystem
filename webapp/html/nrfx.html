@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="Assets/css/thems.css"/>
 <script type="text/javascript" src="../script/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="../script/lunxun.js"></script>
+    <script type="text/javascript" src="../script/addInfo.js"></script>
 <script type="text/javascript">
 $(function(){
 	//自适应屏幕宽度
@@ -27,7 +28,7 @@ $(function(){
 </script>
 </head>
 
-<body onLoad="a()">
+<body onLoad="">
 <div id="right_ctn">
 	<div class="right_m">
 		<!--会议列表-->
@@ -119,14 +120,27 @@ $(function(){
                 </tbody>
             </table>
 			<!--右边底部-->
+                 <div class="search">
+                     <span>非法网站添加：</span>
+                     <div class="s_text"><input name="" type="text" id="ffwztj"></div>
+
+                     <span>敏感词汇添加：</span>
+                     <div class="s_text"><input name="" type="text" id="mgchtj"></div>
+
+                     <span>非法ip添加：&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                     <div class="s_text"><input name="" type="text" id="ffiptj"></div>
+                     <a href="#" class="btn" onClick="tj()">确认</a>
+                     <p>&#12288;&#12288;&#12288;（添加内容如果是多个请用加号连接）</p>
+                 </div>
+                 <!--查询-->
 			<div class="r_foot">
             	<div class="r_foot_m">
             	<span>
                 	<input name="" type="checkbox" value="">
                     <em>全部选中</em>
                 </span>
-			   <a href="#" class="btn" id="gr" onclick="zd()">干扰</a>
                 <a href="" class="btn">刷新</a>
+                    <a href="#" class="btn" onclick="ksfx()">开始分析</a>
             <!--基本配置-->
                 <!--ul class="hypz"-->
                     

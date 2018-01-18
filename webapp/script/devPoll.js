@@ -16,26 +16,13 @@ $(function () {
              dataType: "json",
              success: function (result) {
                  var obj = eval(result);
-//                 $("#yhlb tbody tr").remove();
-//                 for (var i = 0; i < obj.length; i++) {
-//                     var row = $("#row1").clone();
-//                     row.find("#SSID1").text(obj[i].SSID);
-//                     row.find("#MAC1").text(obj[i].MAC);
-//                     row.find("#Channel1").text(obj[i].Channel);
-//                     row.find("#Privacy1").text(obj[i].Privacy);
-//                     row.find("#Clipher1").text(obj[i].Clipher);
-//                     row.find("#Signal1").text(obj[i].Power);
-//                     row.appendTo("#table");
-//                     
-//                 }
                  var trStr = '';//动态拼接table
                  for (var i = 0; i < obj.length; i++) {//循环遍历出json对象中的每一个数据并显示在对应的td中
                  trStr += '<tr class="example">';//拼接处规范的表格形式
                  trStr += '<td class="xz">' + '<input type="checkbox" value="">' + '</td>';
                  trStr += '<td width="15%">' + obj[i].SSID + '</td>';//对应数组表的字段值
                  trStr += '<td width="15%">' + obj[i].MAC + '</td>';
-                 trStr += '<td width="15%">' + obj[i].Privacy + '</td>';
-                 trStr += '<td>' + obj[i].Clipher + '</td>';
+                 trStr += '<td width="15%">' + obj[i].Frequency + '</td>';
                  trStr += '<td>' + obj[i].Power + '</td>';
                  trStr += '<td>' + obj[i].Channel + '</td>';
                  /*经典之处，要将主键对应的值以json的形式进行传递，才能在后台使用*/
@@ -50,3 +37,27 @@ $(function () {
              }
          });
 }
+  //wifi阻断
+    function zd(){
+        $("tbody input[type=checkbox]:checked").map(function () {
+        var sss = $.trim($(this).closest("tr").find("td:eq(2)").text());
+        	var pass = {
+        			aim : "block",
+        			MACd : sss,
+        	};
+        	console.log(pass.MACd);
+            $.ajax({
+                type: "post",
+                url: "/Control",
+                data: pass,
+                contentType: "application/x-www-form-urlencoded",
+                success: function (data) {
+                    if (data.result == 1) {
+                    	alert("阻断成功");
+                    } else if (data.result == 0) {
+                        alert("操作失败");
+                    }
+                }
+            });
+        });
+    }

@@ -28,8 +28,7 @@ function sallitle(){
             	}
             }
         });
-    
-    //setInterval("test()",20000);
+
     }
 
 

@@ -1,4 +1,4 @@
-function a(){
+function ksfx(){
 	analysis();
 	setInterval("analysis()",10000);
 }
@@ -39,27 +39,4 @@ function analysis() {
         
     });
 }
-//wifi阻断
-function zd(){
-var array = $("tbody input[type=checkbox]:checked").map(function () {
-    var sss = $.trim($(this).closest("tr").find("td:eq(4)").text());   
-    	var pass = {
-    			aim : "block",
-    			MACd : sss,
-    	};
-    	console.log(pass.MACd);
-        $.ajax({
-            type: "post",
-            url: "/Control",
-            data: pass,
-            contentType: "application/x-www-form-urlencoded",
-            success: function (data) {
-                if (data.result == 1) {
-                	alert("阻断成功");
-                } else if (data.result == 0) {
-                    alert("操作失败");
-                }
-            }
-        });
-    });
-}
+

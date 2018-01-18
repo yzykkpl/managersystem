@@ -1,30 +1,21 @@
 //wifi 检测到设备信息 hy_list.html
 function a() {
 	wifiInfo();
-	 
     setInterval("wifiInfo()",10000);
- 
-
     }
     function wifiInfo() {
+        var data={
+            demand:"users",
+        };
         $.ajax({
-            type: "GET",
+            type: "post",
             url: "/getAPInfo",
             timeout: 60000,
+            data: data,
             async: true,
             dataType: "json",
             success: function (result) {
                 var obj = eval(result);
-//                var rt = obj.APMAC;
-//                for (var i = 0; i < obj.length; i++){
-//                        var row = $("#row").clone();
-//                        row.find("#Mac").text(obj[i].uMAC);
-//                        row.find("#time").text(obj[i].Time);
-//                        row.find("#power").text(obj[i].Power);
-//                        row.find("#packet").text(obj[i].Packets);
-//                        row.find("#apmac").text(obj[i].APMAC); 
-//                        row.appendTo("#wifi");
-//                }
                 var trStr = '';//动态拼接table
                 for (var i = 0; i < obj.length; i++) {//循环遍历出json对象中的每一个数据并显示在对应的td中
                 trStr += '<tr class="example">';//拼接处规范的表格形式

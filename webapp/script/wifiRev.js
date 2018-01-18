@@ -1,16 +1,17 @@
-// 在hy_list.html 页面 点击检测 跳转掉连接wifi用户页面
+// 在hy_list.html 页面 点击 wifi详情 跳转掉连接wifi用户页面
 function skip() {
 	    var array = $("tbody input[type=checkbox]:checked").map(function () {
 	        var check = $.trim($(this).closest("tr").find("td:eq(2)").text());
-	 
+            var channel = $.trim($(this).closest("tr").find("td:eq(5)").text());
 	    var data={
-	    	demand:"users",
-	    	MAC:check
+	    	aim:"userInfo",
+	    	APMAC:check,
+            channel:channel
 	    };
 	    console.log(data.demand+"  "+data.MAC);
     $.ajax({
         type: "post",
-        url: "/getAPInfo",
+        url: "/Control",
         data: data,
         contentType: "application/x-www-form-urlencoded",
         success: function (data) {

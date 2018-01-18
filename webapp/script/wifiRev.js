@@ -6,7 +6,7 @@ function skip() {
 	    var data={
 	    	aim:"userInfo",
 	    	APMAC:check,
-            channel:channel
+            Channel:channel
 	    };
 	    console.log(data.demand+"  "+data.MAC);
     $.ajax({

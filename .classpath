@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/mongo-java-driver-3.5.0.jar" sourcepath="webapp/WEB-INF/lib/mongo-java-driver-3.5.0-sources.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/servlet-api.jar" sourcepath="I:/apache-tomcat-7.0.81/apache-tomcat-7.0.81-src.zip"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/standard.jar"/>
+	<classpathentry kind="lib" path="webapp/WEB-INF/lib/fastjson-1.2.7.jar" sourcepath="webapp/WEB-INF/lib/fastjson-1.2.7-sources.jar"/>
+	<classpathentry kind="output" path="webapp/WEB-INF/classes"/>
+</classpath>

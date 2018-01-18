@@ -1,0 +1,147 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" >
+<title>内容分析</title>
+<link rel="stylesheet" type="text/css" href="Assets/css/common.css"/>
+<link rel="stylesheet" type="text/css" href="Assets/css/common.css"/>
+<link rel="stylesheet" type="text/css" href="Assets/css/thems.css">
+<script type="text/javascript" src="Assets/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	//自适应屏幕宽度
+	window.onresize=function(){ location=location }; 
+	
+	var main_h = $(window).height();
+	$('.hy_list').css('height',main_h-45+'px');
+	
+	var main_w = $(window).width();
+	$('.xjhy').css('width',main_w-40+'px');
+	
+	
+	$('.xial_m span').click(function(){
+		$(this).parent('.xial_m').siblings('.xl_ctn').toggle();
+	});
+});
+</script>
+</head>
+
+<body onLoad="Resize();">
+<div id="right_ctn">
+	<div class="right_m">
+		<!--会议列表-->
+        <div class="hy_list">
+        	<div class="box_t">
+            	<span class="name">历史数据</span>
+                <!--当前位置-->
+                <div class="position">
+                	<a href=""><img src="Assets/images/icon5.png" alt=""/></a>
+                    <a href="">首页</a>
+                    <span><img src="Assets/images/icon3.png" alt=""/></span>
+                    <a href="">信号检测</a>
+                    <span><img src="Assets/images/icon3.png" alt=""/></span>历史数据</div>
+                <!--当前位置-->
+            </div>
+            <div class="space_hx">&nbsp;</div>
+            <!--终端列表-->
+            <form action="" method="post">
+            <div class="xjhy">
+			
+			
+			 <form action="" method="post">
+            <table cellpadding="0" cellspacing="0" class="list_hy">
+              <tr>
+                <th class="xz" scope="col">选择</th>
+                <th valign="middle" scope="col"><div>
+                  <p>SSID</p>
+                </div></th>
+                <th class="zt" scope="col"><div>检测设备</div></th>
+                <th scope="col">阻断方式</th>
+                <th scope="col">是否成功阻断</th>
+                <th scope="col">&nbsp;</th>
+                <th scope="col">&nbsp;</th>
+                <th scope="col">&nbsp;</th>
+              </tr>
+              <tr>
+                <td class="xz"><input name="" type="checkbox" value=""></td>
+                <td>ip64/1</td>
+                <td class="zt">-</td>
+                <td>2012-10-11 13:28</td>
+                <td>永久会议</td>
+                <td>-</td>
+                <td>主会议</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td class="xz"><input name="" type="checkbox" value=""></td>
+                <td>&nbsp;</td>
+                <td class="zt">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="xz"><input name="" type="checkbox" value=""></td>
+                <td>&nbsp;</td>
+                <td class="zt">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="xz"><input name="" type="checkbox" value=""></td>
+                <td>&nbsp;</td>
+                <td class="zt">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="xz"><input name="" type="checkbox" value=""></td>
+                <td>&nbsp;</td>
+                <td class="zt">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="xz"><input name="" type="checkbox" value=""></td>
+                <td>&nbsp;</td>
+                <td class="zt">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>-</td>
+              </tr>
+            </table>
+			<!--右边底部-->
+			<div class="r_foot">
+            	<div class="r_foot_m">
+            	<span>
+                	<input name="" type="checkbox" value="">
+                    <em>全部选中</em>
+                </span>
+			   <a href="xhjcfx.html" class="btn">查看效果对比图</a>
+                <a href="" class="btn">刷新</a>
+            <!--基本配置-->
+                <!--ul class="hypz"-->
+                    
+            <!--基本配置-->
+            </div>
+            </form>
+            <!--终端列表-->
+        </div>
+        <!--会议列表-->
+    </div>
+</div>
+</body>
+</html>

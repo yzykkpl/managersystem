@@ -1,0 +1,117 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" >
+<title>设备列表</title>
+<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+<link rel="stylesheet" type="text/css" href="../css/thems.css">
+<script type="text/javascript" src="../script/jquery-ui-1.8.23.custom/js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../script/devUser.js"></script>
+<script type="text/javascript">
+$(function(){
+	//自适应屏幕宽度
+	window.onresize=function(){ location=location }; 
+	
+	var main_h = $(window).height();
+	$('.hy_list').css('height',main_h-45+'px');
+	
+	var search_w = $(window).width()-40;
+	$('.search').css('width',search_w+'px');
+	//$('.list_hy').css('width',search_w+'px');，
+});
+</script>
+<!--框架高度设置-->
+</head>
+
+<body onLoad="dectect()">
+<div id="right_ctn">
+	<div class="right_m">
+		<!--设备列表-->
+      <div class="hy_list">
+        	<div class="box_t">
+            	<span class="name">设备列表</span>
+                <!--当前位置-->
+                <div class="position">
+                	<a href=""><img src="../images/icon5.png" alt=""/></a>
+                    <a href="">首页</a>
+                    <span><img src="../images/icon3.png" alt=""/></span>
+                    <a href="">设备管理</a>
+                    <span><img src="../images/icon3.png" alt=""/></span>
+                    <a href="">设备列表</a>
+                </div>
+                <!--当前位置-->
+            </div>
+            <!--查询-->
+            <div class="search">
+            	<span>按设备名称查询：</span>
+                <div class="s_text"><input name="" type="text"></div>
+                <a href="" class="btn">查询</a>
+            </div>
+            <!--查询-->
+        <div class="space_hx">&nbsp;</div>
+          <!--列表-->
+          <div style="height:400px;width:800px;overflow-x :scroll">
+              <form action="" method="post">
+                <table width="978" cellpadding="0" cellspacing="0" class="list_hy" id="sblb">
+                  <tr>
+                    <th width="60" class="xz" scope="col">选择</th>
+                    <th width="78" scope="col"><div>设备名称</div></th>
+                    <th width="75" class="zt" scope="col"><div>可控人员</div></th>
+                  </tr>
+                    <tbody>
+                  <tr id="row">
+                    <td class="xz"><input name="" type="checkbox" value=""></td>
+                    <td id="sb">设备1</td>
+					<td id="ry">人员1</td>
+                
+                    
+                  </tr>
+                  <tr>
+                    <td class="xz"><input name="" type="checkbox" value=""></td>
+                    <td></td>
+					<td></td>
+                 
+                    
+                  
+                  </tr>
+                  <tr>
+                    <td class="xz"><input name="" type="checkbox" value=""></td>
+                    <td></td>
+					<td></td>
+                  </tr>
+                    </tbody>
+                </table>
+                <!--列表-->
+                <!--右边底部-->
+                <div class="r_foot">
+                  <div class="r_foot_m">
+                    <span>
+                      <input name="" type="checkbox" value="">
+                      <em>全部选中</em>
+                    </span>
+                    <a href="#" class="btn" id="jc" onclick="start()">检测</a> <!-- 转到检测界面，显示ssid等一系列信息-->
+                    <a href="" class="btn">刷新</a>
+                    
+                    <!--分页-->
+                    <div class="page">
+                      <a href="" class="prev"><img src="../images/icon7.png" alt=""/></a>
+                      <a class="now">1</a>
+                      <a href="">2</a>
+                      <a href="">3</a>
+                      <a href="">4</a>
+                      <a href="">5</a>
+                      <a href="">6</a>
+                      <a href="" class="next"><img src="../images/icon8.png" alt=""/></a>                    </div>
+                    <!--分页-->
+                  </div>
+                </div>
+              </form>
+        </div>
+          <!--右边底部-->
+        </div>
+        <!--会议列表-->
+    </div>
+</div>
+</body>
+</html>

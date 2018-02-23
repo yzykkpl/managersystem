@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.alibaba.fastjson.JSONArray;
 
-import javafx.scene.chart.PieChart.Data;
+//import javafx.scene.chart.PieChart.Data;
 import tools.DealJSON;
 @WebServlet("/signal")
 public class Signal extends HttpServlet{

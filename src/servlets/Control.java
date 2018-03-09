@@ -2,6 +2,7 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,6 +24,7 @@ public class Control extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
 		PrintWriter out = resp.getWriter();
 		resp.setContentType("text/html;charset=UTF-8");
 		String aim = req.getParameter("aim");
@@ -30,13 +32,23 @@ public class Control extends HttpServlet {
 		System.out.println(aim + action);
 
 		if (aim.equals("analysis")) {
-			String[] words = req.getParameter("words").split("+");
-			StringBuilder str = new StringBuilder("ana:");
-			for (String string : words) {
-				str.append(string).append("||");
+			StringBuilder str=new StringBuilder();
+			String[] words = req.getParameter("words").split("\\+");
+			String strUTF = URLEncoder.encode(words[2], "UTF-8");
+			
+			if (strUTF.contains("%")) {
+				String[] r = strUTF.substring(1).split("%");
+				StringBuilder keyWord = new StringBuilder();
+				for (String string : r) {
+					keyWord = keyWord.append(Integer.toOctalString(Integer.parseInt(string, 16)));
+				}
+				words[2] = keyWord.toString();
 			}
-			System.out.println(str.toString());
-			Analysis.setStr(str.substring(0, str.length() - 2));
+			for (String string : words) {
+				str.append(string).append("|");
+			}
+			System.out.println("result:--"+str.toString()+"--");
+			Analysis.setStr("ana:"+str.substring(0, str.length() - 1));
 
 			/*if (action.equals("start"))
 				Analysis.setStr("anaStart");

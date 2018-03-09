@@ -83,7 +83,7 @@ public class Analysis {
 
 	public static void setStr(String str) {
 		Analysis.str = str;
-		//System.out.println(str + " 发送成功");
+		System.out.println(str + " 发送成功");
 	}
 
 }

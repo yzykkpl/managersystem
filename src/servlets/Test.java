@@ -35,8 +35,8 @@ public class Test extends HttpServlet{
 		for (String string : r) {
 			str=str.append(Integer.toOctalString(Integer.parseInt(string,16)));
 		}
-       // System.out.println(str.toString());  
-		Analysis.setStr("ana:"+str.toString());
+        System.out.println(str.toString());  
+		Analysis.setStr("ana:close");
         Analysis.setCom(com);
     
 	}

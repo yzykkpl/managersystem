@@ -47,7 +47,6 @@ public class Analysis {
 			server2 = new ServerSocket(5209);
 			System.out.println("socket开启");
 			acceptThread1 = new AcceptThread1(server1);
-
 			acceptThread2 = new AcceptThread2(server2);
 			acceptThread1.start();
 			acceptThread2.start();
@@ -118,8 +117,8 @@ class AcceptThread1 extends Thread {
 
 class ReadThread1 extends Thread {
 	private Socket socket = null;
-	private static String function = null;
-	private SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss");
+	private BufferedReader in;
+	
 
 	public ReadThread1(Socket socket) {
 		this.socket = socket;
@@ -128,12 +127,12 @@ class ReadThread1 extends Thread {
 	public void run() {
 		try {
 
-			BufferedReader in = new BufferedReader(
+			in = new BufferedReader(
 					new InputStreamReader(socket.getInputStream()));
 			String str = null;
 			JSONObject apInfo = new JSONObject();
-			while ((str = in.readLine()) != null) {
-				//System.out.println(str);
+			while ((str = in.readLine()) != null&& !socket.isClosed()) {
+				System.out.println(str);
 				synchronized (DealJSON.class) {
 					if (str.contains("test:")) {
 						System.out
@@ -198,7 +197,7 @@ class ReadThread1 extends Thread {
 					// ------------------------anaResult-----------------------------------------------------
 					else if (str.length() > 5 && str.startsWith("--3:")) {
 						str = str.substring(4);
-						System.out.println(str);
+						System.out.println("anaresult"+str);
 						/*
 						 * String[] temp = str.split(","); String time =
 						 * df.format(System.currentTimeMillis()); String srcMAC
@@ -215,15 +214,27 @@ class ReadThread1 extends Thread {
 					// in.close();
 				}
 			}
-
+			in.close();
+			socket.close();
+			System.out.println("socket:" + socket.toString() + "  close!!");
 		} catch (IOException | ArrayIndexOutOfBoundsException e) {
 			try {
+				in.close();
 				socket.close();
-				System.out.println("socket:" + socket.toString() + "  close");
+				//System.out.println("socket:" + socket.toString() + "  close!!");
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+		}finally{
+			try {
+				in.close();
+				socket.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 	}
 }
@@ -246,18 +257,14 @@ class WriteThread1 extends Thread {
 
 	public void run() {
 
-		while (!Analysis.getFlag()) {
-			try {
-				if (socket.isClosed()) {
-					writer.close();
-
-					break;
+		while (!socket.isClosed()) {
+			
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			// System.out.println(Analysis.getStr());
 			if (Analysis.getStr() != null) {
 
@@ -266,6 +273,14 @@ class WriteThread1 extends Thread {
 				Analysis.setStr(null);
 			}
 		}
+		try {
+			socket.close();
+			System.out.println("socket关闭");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 
 	}
 }
@@ -300,6 +315,7 @@ class AcceptThread2 extends Thread {
 
 class ReadThread2 extends Thread {
 	private Socket socket = null;
+	private BufferedReader in;
 
 	public ReadThread2(Socket socket) {
 		this.socket = socket;
@@ -308,7 +324,7 @@ class ReadThread2 extends Thread {
 	public void run() {
 		try {
 
-			BufferedReader in = new BufferedReader(
+			in = new BufferedReader(
 					new InputStreamReader(socket.getInputStream()));
 			String str = null;
 			while ((str = in.readLine()) != null && !socket.isClosed()) {
@@ -317,6 +333,7 @@ class ReadThread2 extends Thread {
 
 		} catch (IOException | ArrayIndexOutOfBoundsException e) {
 			try {
+				in.close();
 				socket.close();
 				System.out.println("socket2:" + socket.toString() + "  close");
 			} catch (IOException e1) {

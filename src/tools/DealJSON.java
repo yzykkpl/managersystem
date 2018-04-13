@@ -57,9 +57,12 @@ public class DealJSON {
 
 	public static void addAnaResult(String[] str) {
 		anaResult=new JSONObject();
-		anaResult.put("src", str[0]);
-		anaResult.put("dst", str[1]);
+		anaResult.put("srcMAC", str[0]);
+		anaResult.put("dstMAC", str[1]);
 		anaResult.put("time", str[2]);
+		anaResult.put("srcIP", str[3]);
+		anaResult.put("dstIP", str[4]);
+		anaResult.put("keyWord", str[5]);
 		anaResultArray.add(anaResult);
 		
 		

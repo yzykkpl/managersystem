@@ -1,10 +1,13 @@
-function tj() {
+function addInfo() {
     var ffwz = document.getElementById("ffwztj").value;
     var ffip = document.getElementById("ffiptj").value;
-    var mgch = document.getElementById("mgchtj").value;
+    console.log(ffwz);
+    var zwmgch = document.getElementById("zwmgchtj").value;
+    var ywmgch = document.getElementById("ywmgchtj").value;
+    //console.log(ffwz);
     var pass = {
         aim: "analysis",
-        words: ffwz + "+" + ffip + "+" + mgch
+        words: ffwz + "+" + ffip + "+" + zwmgch + "+" + ywmgch
     };
     $.ajax({
         type: "post",
@@ -12,6 +15,7 @@ function tj() {
         data: pass,
         contentType: "application/x-www-form-urlencoded",
         success: function (rt) {
+        	console.log(rt)
             if (rt == 0) {
                 alert("添加成功")
             } else if (rt == 1) {

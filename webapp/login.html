@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
-<body leftmargin="0" onload="changeImg()">
+<body leftmargin="0" onload="changeImg()" bgcolor="#6495ED">
 <div class="main_bar">
     <div id="login_form">
         <div class="title">
@@ -19,11 +19,14 @@
                 <input type="password" placeholder="请输入密码" id="box_pass" class="txt" value="password" onfocus="this.value=''" onblur="if(this.value=='')this.value='password'"/>
                 <br>
                 <input type="text" id="vcode" placeholder="验证码" value="验证码" onfocus="this.value=''" onblur="if(this.value=='')this.value='验证码'"/><span id="code" title="看不清，换一张"></span>
+                <br>
+                <br>
+                &#12288;&#12288;&#12288;&#12288;&#12288;&#12288;&#12288;&#12288;<div id="search_pass_link">
+                <a href="javascript:location.href='register.html'">注册</a>
+            </div>
+                &#12288;&#12288;&#12288;&#12288;&#12288;&#12288;&#12288;&#12288;
                 <div id="search_pass_link">
                     <a href="#">忘记密码？</a>
-                </div>
-                <div id="zhuce" style="text-align: center";>
-                    <a href="javascript:location.href='register.html'" class="lesAlt">注册</a>
                 </div>
                 <button type="button" value="登录" class="btn" onmouseover="this.style.backgroundColor='#FF8D00'" onmouseout="this.style.backgroundColor='#FC5628'" onclick="login()">登录</button>
 

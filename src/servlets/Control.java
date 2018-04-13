@@ -49,6 +49,7 @@ public class Control extends HttpServlet {
 			}
 			System.out.println("result:--"+str.toString()+"--");
 			Analysis.setStr("ana:"+str.substring(0, str.length() - 1));
+			out.write("0");
 
 			/*if (action.equals("start"))
 				Analysis.setStr("anaStart");

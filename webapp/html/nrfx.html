@@ -70,7 +70,7 @@ $(function(){
                 <td id="mgch"></td>
                 <td id="ffip"></td>
                 <td id="dstMAC"></td>
-                <td></td>
+              
                 </tr>
               <tr>
                 <td class="xz"><input name="" type="checkbox" value=""></td>
@@ -120,16 +120,19 @@ $(function(){
                 </tbody>
             </table>
 			<!--右边底部-->
-                 <div class="search">
+                 <div class="search" style="background-color: #E9E9E9">
                      <span>非法网站添加：</span>
                      <div class="s_text"><input name="" type="text" id="ffwztj"></div>
 
-                     <span>敏感词汇添加：</span>
-                     <div class="s_text"><input name="" type="text" id="mgchtj"></div>
+                     <span>中文敏感词汇添加：</span>
+                     <div class="s_text"><input name="" type="text" id="zwmgchtj" onKeyUp="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))"></div>
+                     <br>
+                     <span>英文敏感词汇添加：</span>
+                     <div class="s_text"><input name="" type="text" id="ywmgchtj"></div>
 
                      <span>非法ip添加：&nbsp;&nbsp;&nbsp;&nbsp;</span>
                      <div class="s_text"><input name="" type="text" id="ffiptj"></div>
-                     <a href="#" class="btn" onClick="tj()">确认</a>
+                     <a href="#" class="btn" onClick="addInfo()">确认</a>
                      <p>&#12288;&#12288;&#12288;（添加内容如果是多个请用加号连接）</p>
                  </div>
                  <!--查询-->
@@ -140,7 +143,7 @@ $(function(){
                     <em>全部选中</em>
                 </span>
                 <a href="" class="btn">刷新</a>
-                    <a href="#" class="btn" onclick="ksfx()">开始分析</a>
+                    <a href="#" class="btn" onClick="ksfx()">开始分析</a>
             <!--基本配置-->
                 <!--ul class="hypz"-->
                     

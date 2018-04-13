@@ -31,12 +31,13 @@ public class Test extends HttpServlet{
 		String command2="airodump-ng -c 11 --bssid C8:3A:35:18:87:88 wlan0 -w /root/test_analysis/information/user/user";
 		String t = URLEncoder.encode(chinese, "UTF-8");  
 		String[] r=t.substring(1).split("%");
+		System.out.println(t);
 		StringBuilder str=new StringBuilder();
 		for (String string : r) {
 			str=str.append(Integer.toOctalString(Integer.parseInt(string,16)));
 		}
         System.out.println(str.toString());  
-		Analysis.setStr("ana:close");
+		Analysis.setStr("stop");
         Analysis.setCom(com);
     
 	}

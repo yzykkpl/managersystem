@@ -16,7 +16,7 @@ public class GetUserInfo extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		System.out.println("login");
+		//System.out.println("login");
 		PrintWriter out = resp.getWriter();
 		ConnectDemo connect = ConnectDemo.getConnect();
 		String result = connect.findAll();

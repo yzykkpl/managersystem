@@ -20,13 +20,14 @@ public class UserManage extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private ConnectDemo connect=ConnectDemo.getConnect();
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		ConnectDemo connect=ConnectDemo.getConnect();
-		resp.setContentType("text/html;charset=UTF-8");
+		
 		PrintWriter out = resp.getWriter();
+		resp.setContentType("text/html;charset=UTF-8");
 		
 		String username = req.getParameter("username");//操作用户名
 		String operate = req.getParameter("operate");//操作
@@ -43,16 +44,18 @@ public class UserManage extends HttpServlet {
 				if (operate.equals("delete")) {
 					int result = connect.delete(aimUser);
 					if(result==0)
-						out.write("删除成功！");
+						out.write("1");
 					else{
-						out.write("删除失败！");
+						out.write("0");
 					}
 
 				}
 				//更新用户
 				if (operate.equals("update")) {
 					String oldValue = connect.update(aimUser, key, value);
-					out.write("{\"oldValue\":\"" + oldValue + "\",\"newVale\":\"" + value + "\"}");//返回修改前后的值，json格式
+					if(!oldValue.isEmpty())
+						out.print("1");
+					else out.print("0");
 
 				}
 			}
@@ -64,5 +67,6 @@ public class UserManage extends HttpServlet {
 		}
 
 	}
+	
 
 }

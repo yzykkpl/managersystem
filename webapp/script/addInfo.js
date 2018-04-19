@@ -7,7 +7,7 @@ function addInfo() {
     //console.log(ffwz);
     var pass = {
         aim: "analysis",
-        words: ffwz + "+" + ffip + "+" + zwmgch + "+" + ywmgch
+        words: ffwz + " +" + ffip + " +" + zwmgch + " +" + ywmgch
     };
     $.ajax({
         type: "post",

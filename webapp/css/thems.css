@@ -181,7 +181,7 @@
 	width:100%;
 	height:40px;
 	line-height:40px;
-	position:relative;
+	position:absolute;
 }
 .r_foot_m span{
 	display:inline-block;

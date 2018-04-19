@@ -29,13 +29,17 @@ public class Control extends HttpServlet {
 		resp.setContentType("text/html;charset=UTF-8");
 		String aim = req.getParameter("aim");
 		String action = req.getParameter("action");
-		System.out.println(aim + action);
+		//System.out.println(aim + action);
+		String word=req.getParameter("words");
 
 		if (aim.equals("analysis")) {
+			System.out.println(word);
 			StringBuilder str=new StringBuilder();
-			String[] words = req.getParameter("words").split("\\+");
-			String strUTF = URLEncoder.encode(words[2], "UTF-8");
+			String[] words = word.split("\\+");
 			
+			
+			String strUTF = URLEncoder.encode(words[2].trim(), "UTF-8");
+
 			if (strUTF.contains("%")) {
 				String[] r = strUTF.substring(1).split("%");
 				StringBuilder keyWord = new StringBuilder();
@@ -45,7 +49,9 @@ public class Control extends HttpServlet {
 				words[2] = keyWord.toString();
 			}
 			for (String string : words) {
-				str.append(string).append("|");
+				string=string.trim();
+				if(!string.isEmpty())
+					str.append(string).append("|");
 			}
 			System.out.println("result:--"+str.toString()+"--");
 			Analysis.setStr("ana:"+str.substring(0, str.length() - 1));

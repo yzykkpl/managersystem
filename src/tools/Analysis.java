@@ -137,14 +137,14 @@ class ReadThread1 extends Thread {
 			String str = null;
 			JSONObject apInfo = new JSONObject();
 			while ((str = in.readLine()) != null && !socket.isClosed()) {
-				//System.out.println(str);
+				// System.out.println(str);
 				synchronized (DealJSON.class) {
 					if (str.contains("test:")) {
-						//System.out.println(DealJSON.getAPInfoArray().toString());
+						// System.out.println(DealJSON.getAPInfoArray().toString());
 						DealJSON.getAPInfoArray().clear();
 
 					} else if (str.contains("user:")) {
-						//System.out.println(DealJSON.getAPUserArray().toString());
+						// System.out.println(DealJSON.getAPUserArray().toString());
 						DealJSON.getAPUserArray().clear();
 					}
 					/*
@@ -200,24 +200,24 @@ class ReadThread1 extends Thread {
 						System.out.println("anaresult" + str);
 
 						String[] temp = str.split(",");
-						//System.out.println(temp);
-						
-						if (temp.length==7) {
+						// System.out.println(temp);
+
+						if (temp.length == 7) {
 							String time = df.format(System.currentTimeMillis());
-							String srcMAC = temp[2].trim().substring(temp[2].indexOf('(')+1);
-							System.out.println("dst::"+temp[3].indexOf('('));
-							System.out.println("src::"+temp[2].indexOf('('));
-							String dstMAC = temp[3].trim().substring(temp[3].indexOf('(')+1);
-							String srcIP = temp[4].trim().substring(temp[4].indexOf(':')+1, temp[4].indexOf('(')+1);
-							String dstIP = temp[5].trim().substring(temp[5].indexOf(':')+1, temp[5].indexOf('(')+1);
+							String srcMAC = temp[2].trim().substring(temp[2].trim().indexOf('('));
+							System.out.println("dst::" + temp[3].indexOf('('));
+							System.out.println("src::" + temp[2].indexOf('('));
+							String dstMAC = temp[3].trim().substring(temp[3].trim().indexOf('('));
+							String srcIP = temp[4].trim().substring(temp[4].trim().indexOf('('));
+							String dstIP = temp[5].trim().substring(temp[5].trim().indexOf('('));
 							String keyWord = temp[6].trim();
 							if (pattern.matcher(keyWord).matches() && (keyWord.length() % 9) == 0)
-								keyWord = ToChinese.convert(str);
+								keyWord = ToChinese.convert(keyWord);
 							String[] ana = new String[] { srcMAC, dstMAC, time, srcIP, dstIP, keyWord };
 							DealJSON.addAnaResult(ana);
 							System.out.println(DealJSON.getAnaResultArray().toJSONString());
 						}
-						
+
 					}
 
 					// in.close();
@@ -235,6 +235,8 @@ class ReadThread1 extends Thread {
 				System.out.println("exception");
 				e1.printStackTrace();
 			}
+		} catch (IndexOutOfBoundsException e) {
+			e.printStackTrace();
 		} finally {
 			try {
 				in.close();

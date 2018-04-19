@@ -23,7 +23,7 @@ public class LoginFilter implements Filter {
 
 	public void init(FilterConfig filterConfig) throws ServletException {
 		loginPage = filterConfig.getInitParameter("loginPage");
-		System.out.println(loginPage);
+		//System.out.println(loginPage);
 		freeURI = filterConfig.getInitParameter("freeURI");
 		freeURIList = Arrays.asList(freeURI.split(","));
 		charSet = filterConfig.getInitParameter("charSet");

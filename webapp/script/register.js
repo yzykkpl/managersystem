@@ -16,7 +16,7 @@ function reg() {
 		success : function(data) {
 			console.log(data);
 			if (data == 0) {
-				location.href="/sallitle.html";
+				location.href="/html/index.html";
 				alert("注册成功");
 			} else if (data == 1) {
 				alert("用户已存在");

@@ -37,17 +37,16 @@ public class Login extends HttpServlet{
 		PrintWriter out = resp.getWriter();
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
-		System.out.println(username);
+		//System.out.println(username);
 		ConnectDemo connect=ConnectDemo.getConnect();
-		int result = 0;
-		//int result = connect.login(username, password);
+		int result = connect.login(username, password);
 		switch(result){
 			case 0:
 				//成功--TODO
 				req.getSession().setAttribute("USER_IN_SESSION", username);
 				out.write("0");
 				UserState.updateLog("login", username);
-				System.out.println("登陆成功");
+				//System.out.println("登陆成功");
 				break;
 			case 1:
 				out.write("1");

@@ -30,13 +30,13 @@ body {
 -->
 </style></head>
 
-<body onload="userReq()">
+<body onLoad="userReq()">
 <p>&nbsp;</p>
 <div id="right_ctn">
 	<div class="right_m">
 		<!--会议列表-->
         <div class="hy_list">
-        	<div class="box_t"><span class="logo"><a href=""><img src="Assets/images/logo1.png" alt="卫星系统"/></a></span>
+        	<div class="box_t"><span class="logo"></span>
             	<span class="name">用户列表</span>
                 <!--当前位置-->
                 <div class="position">
@@ -63,16 +63,14 @@ body {
               <tr>
                 <th width="50" class="xz" scope="col" id="checkbox">选择</th>
                 <th width="179" scope="col"><div>用户名称</div></th>
-                <th width="140" class="zt" scope="col">操控设备</th>
                 <th width="125" scope="col">是否为管理员</th>
-                <th width="120" scope="col">&nbsp;</th>
+                <th width="120" scope="col">邮箱</th>
                 <th width="124" scope="col">&nbsp;</th>
               </tr>
                 <tbody>
               <tr id="row1" class="example">
                 <td class="xz"><input name="test" type="checkbox" value=""></td>
                 <td id="yh"></td>
-                <td id="cksb">&nbsp;</td>
                 <td id="yn"></td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -80,7 +78,6 @@ body {
               <tr>
                 <td class="xz"><input name="test" type="checkbox" value=""></td>
                 <td>&nbsp;</td>
-                <td class="zt">&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -88,7 +85,6 @@ body {
               <tr>
                 <td class="xz"><input name="test" type="checkbox" value=""></td>
                 <td>&nbsp;</td>
-                <td class="zt">&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -96,7 +92,6 @@ body {
               <tr>
                 <td class="xz"><input name="test" type="checkbox" value=""></td>
                 <td>&nbsp;</td>
-                <td class="zt">&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -104,7 +99,6 @@ body {
               <tr>
                 <td class="xz"><input name="test" type="checkbox" value=""></td>
                 <td>&nbsp;</td>
-                <td class="zt">&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -112,7 +106,6 @@ body {
               <tr>
                 <td class="xz"><input name="test" type="checkbox" value=""></td>
                 <td>&nbsp;</td>
-                <td class="zt">&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -127,7 +120,8 @@ body {
                 	<input name="" type="checkbox" value="">
                     <em>全部选中</em>
                 </span>
-                <a href="" class="btn" id="dev" onclick="YHqq()">删除</a>
+                <a href="" class="btn" onClick="userDev()">删除</a>
+                <a href="" class="btn" onClick="userSp()">设为管理员</a>
                 <a href="" class="btn">刷新</a>
                 
                 <!--分页-->

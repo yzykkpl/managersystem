@@ -263,8 +263,8 @@ body {
 					if (_this.value == "") {
 
 						_p.innerHTML = "<i></i>用户名不能为空！";
-					} else if (_this.value.length<3 || _this.value.length>16) {
-						_p.innerHTML = "<i></i>用户名长度应控制在3-16位字符之间！";
+					} else if (_this.value.length<6 || _this.value.length>12) {
+						_p.innerHTML = "<i></i>用户名长度应控制在6-12位字符之间！";
 					} else if (!/^[\w_-\u4e00-\u9fa5]+$/.test(_this.value)) {
 						_p.innerHTML = "<i></i>用户名只能由大小写字母，数字，下划线，中横线和中文组成！";
 					} else {

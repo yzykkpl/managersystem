@@ -61,3 +61,37 @@ $(function () {
             });
         });
     }
+// 停止检测
+        function tzjc() {
+            ipts = {
+               // deviceName:name,
+                aim : "detection",
+                action : "stop"
+          };
+          $.ajax({
+              type : "POST",
+              url : "/Control",
+               data : ipts,
+              contentType : "application/x-www-form-urlencoded",
+              success : function() {
+                 alert("停止成功");
+             }
+          });
+        }
+        //停止阻断
+function tzzd1() {
+    src1 = {
+        // deviceName:name,
+        aim : "block",
+        action : "stop"
+    };
+    $.ajax({
+        type : "POST",
+        url : "/Control",
+        data : src1,
+        contentType : "application/x-www-form-urlencoded",
+        success : function() {
+            alert("停止成功");
+        }
+    });
+}

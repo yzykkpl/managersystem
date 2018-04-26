@@ -173,7 +173,7 @@
 	height:40px;
 	background:#F4F4F4;
 	text-align:left;
-	position:absolute;
+	position:fixed;
 	left:0px;
 	bottom:0px;
 }

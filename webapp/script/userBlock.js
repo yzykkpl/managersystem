@@ -28,3 +28,21 @@ function userblock() {
     });
      }).get();
 }
+
+//停止阻断
+function tzzd2() {
+    src2 = {
+        // deviceName:name,
+        aim : "userBlock",
+        action : "stop"
+    };
+    $.ajax({
+        type : "POST",
+        url : "/Control",
+        data : src2,
+        contentType : "application/x-www-form-urlencoded",
+        success : function() {
+            alert("停止成功");
+        }
+    });
+}

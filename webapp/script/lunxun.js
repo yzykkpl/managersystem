@@ -36,3 +36,21 @@ function analysis() {
     });
 }
 
+function tzfx() {
+    ipts = {
+        // deviceName:name,
+        aim : "analysis",
+        action : "stop"
+    };
+        $.ajax({
+            type : "POST",
+            url : "/Control",
+            data : ipts,
+            contentType : "application/x-www-form-urlencoded",
+            success : function() {
+
+                alert("停止成功");
+
+            }
+        });
+}

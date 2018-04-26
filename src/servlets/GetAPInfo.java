@@ -45,8 +45,10 @@ public class GetAPInfo extends HttpServlet {
 		//System.out.println(demand+"  "+M);
 		Class<?> dealJSON = DealJSON.class;
 		synchronized (dealJSON) {
-			if (demand.equals("wifi"))
+			if (demand.equals("wifi")){
 				Info = DealJSON.getAPInfoArray().toJSONString();
+				System.out.println("当前ap信息："+Info);
+			}
 			else if (demand.equals("users")) {
 			
 				String MAC = (String) req.getSession().getAttribute("MAC");

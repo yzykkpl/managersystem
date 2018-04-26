@@ -21,7 +21,7 @@ public class GetUserInfo extends HttpServlet {
 		ConnectDemo connect = ConnectDemo.getConnect();
 		String result = connect.findAll();
 		out.write(result);
-		System.out.println(result);
+		//System.out.println(result);
 
 	}
 

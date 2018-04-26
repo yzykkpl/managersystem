@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import tools.Analysis;
+import tools.DealJSON;
 
 /**
  * @author kkpl 参数 aim:analysis| detection action:start|stop
@@ -31,8 +32,10 @@ public class Control extends HttpServlet {
 		String word = req.getParameter("words");
 
 		if (aim.equals("analysis")) {
-			if (action!=null&&action.equals("stop"))
+			if (action!=null&&action.equals("stop")){
 				Analysis.setStr("stop_analysis");
+				DealJSON.getAnaResultArray().clear();
+				}
 			else {
 				System.out.println(word);
 				StringBuilder str = new StringBuilder();
@@ -72,7 +75,7 @@ public class Control extends HttpServlet {
 			} else {
 				String uMAC = req.getParameter("uMAC");
 				String APMAC = req.getParameter("APMAC");
-				String command = "aireplay-ng -0 100 -a " + APMAC + " -c " + uMAC + " wlan0";
+				String command = "aireplay-ng -0 0 -a " + APMAC + " -c " + uMAC + " wlan0";
 				Analysis.setStr(command);
 			}
 

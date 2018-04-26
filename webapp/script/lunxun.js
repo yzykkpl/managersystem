@@ -15,19 +15,25 @@ function analysis() {
                 var obj = eval(result);
                 console.log(result)
                 var trStr = '';//动态拼接table
-                for (var i = 0; i < obj.length; i++) {//循环遍历出json对象中的每一个数据并显示在对应的td中
-                trStr += '<tr class="example">';//拼接处规范的表格形式
-                trStr += '<td class="xz">' + '<input type="checkbox" value="">' + '</td>';
-                trStr += '<td width="15%">' + obj[i].time + '</td>';//对应数组表的字段值
-                trStr += '<td width="15%">' + obj[i].srcMAC + '</td>';
-                trStr += '<td width="15%">' + obj[i].dstMAC + '</td>';
-                trStr += '<td width="15%">' + obj[i].srcIP + '</td>';//对应数组表的字段值
-                trStr += '<td width="15%">' + obj[i].dstIP + '</td>';
-                trStr += '<td width="15%">' + obj[i].keyWord + '</td>';
-                /*经典之处，要将主键对应的值以json的形式进行传递，才能在后台使用*/
-              //  trStr += "<td><a href='#'style='text-decoration:none' onclick='Delete(\"" + obj[i].NVFID + "\")'>删除</a><td>";
-                trStr += '</tr>';  
-                } 
+                var json=obj[obj.length-1]
+                var APMAC=json.APMAC
+                if(obj.length>1){
+	                for (var i = 0; i < obj.length-1; i++) {//循环遍历出json对象中的每一个数据并显示在对应的td中
+	                trStr += '<tr class="example">';//拼接处规范的表格形式
+	                trStr += '<td class="xz">' + '<input type="checkbox" value="">' + '</td>';
+	                trStr += '<td width="15%">' + obj[i].time + '</td>';//对应数组表的字段值
+	                trStr += '<td width="15%">' + obj[i].srcMAC + '</td>';
+	                trStr += '<td width="15%">' + obj[i].dstMAC + '</td>';
+	                trStr += '<td width="15%">' + obj[i].srcIP + '</td>';//对应数组表的字段值
+	                trStr += '<td width="15%">' + obj[i].dstIP + '</td>';
+	                trStr += '<td width="15%">' + obj[i].keyWord + '</td>';
+	                trStr += '<td width="15%">' + APMAC + '</td>';
+	                /*经典之处，要将主键对应的值以json的形式进行传递，才能在后台使用*/
+	              //  trStr += "<td><a href='#'style='text-decoration:none' onclick='Delete(\"" + obj[i].NVFID + "\")'>删除</a><td>";
+	                trStr += '</tr>';  
+	                } 
+                }
+                
                 $("#nrfx  tr:not(:first)").html("");
 
                 $("#nrfx").append(trStr);

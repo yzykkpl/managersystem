@@ -32,12 +32,16 @@ public class GetAnalysis extends HttpServlet {
 		
 		Class<?> dealJSON = DealJSON.class;
 		synchronized (dealJSON) {
-			//String test="[{"srcIP":"(125.221.46.252)","dstMAC":"(7c:dd:90:a6:b0:f4)","srcMAC":"(58:66:ba:0d:81:00)","time":"2018-4-26 14:27:27","dstIP":"(192.168.140.155)","keyWord":"河北"}]"
-			String anaResult = DealJSON.getAnaResultArray().toJSONString();
-			System.out.println("--------------");
-			System.out.println(anaResult);
-			System.out.println("--------------");
-			out.write(anaResult);
+			JSONObject APMAC=new JSONObject();
+			APMAC.put("APMAC", Analysis.getAPMAC());
+			JSONArray anaResult = DealJSON.getAnaResultArray();
+			if (anaResult.size()>0) {
+				anaResult.add(APMAC);
+				System.out.println("--------------");
+				System.out.println(anaResult.toJSONString());
+				System.out.println("--------------");
+				out.write(anaResult.toJSONString());
+			}
 		}
 	}
 }

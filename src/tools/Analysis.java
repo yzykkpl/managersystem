@@ -30,6 +30,15 @@ public class Analysis {
 	private AcceptThread2 acceptThread2;
 	private static String str = null;
 	private static String com = null;
+	private static String APMAC="";
+
+	public static String getAPMAC() {
+		return APMAC;
+	}
+
+	public static void setAPMAC(String aPMAC) {
+		APMAC = aPMAC;
+	}
 
 	public static String getCom() {
 		return com;
@@ -137,7 +146,7 @@ class ReadThread1 extends Thread {
 			String str = null;
 			JSONObject apInfo = new JSONObject();
 			while ((str = in.readLine()) != null && !socket.isClosed()) {
-				 System.out.println(str);
+				// System.out.println(str);
 				synchronized (DealJSON.class) {
 					if (str.contains("test:")) {
 						// System.out.println(DealJSON.getAPInfoArray().toString());

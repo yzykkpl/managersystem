@@ -95,3 +95,17 @@ function tzzd1() {
         }
     });
 }
+function send() {
+    $("tbody input[type=checkbox]:checked").map(function () {
+        var uMac = $.trim($(this).closest("tr").find("td:eq(2)").text());
+        var send = {
+            APMAC : uMac
+        };
+        $.ajax({
+            type: "post",
+            url: "/setAPmac",
+            data: send,
+            contentType: "application/x-www-form-urlencoded",
+        });
+    });
+}

@@ -6,7 +6,7 @@ function ZD() {
         console.log(apMAC);
         var mac={
             aim:"userBlock",
-            uMAC:MAC,
+            uMAC:MAC.slice(1,-1),
             APMAC:apMAC
         };
 

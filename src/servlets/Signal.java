@@ -35,11 +35,11 @@ public class Signal extends HttpServlet{
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		readJSON(req);
+		readToJSON(req);
 		
 	}
 
-	private void readJSON(HttpServletRequest req) {
+	private void readToJSON(HttpServletRequest req) {
 		Class<?> dealJSON = DealJSON.class;
 		synchronized (dealJSON) {
 			try {

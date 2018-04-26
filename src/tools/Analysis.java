@@ -215,8 +215,6 @@ class ReadThread1 extends Thread {
 						if (temp.length == 7) {
 							String time = df.format(System.currentTimeMillis());
 							String srcMAC = temp[2].trim().substring(temp[2].trim().indexOf('('));
-							//System.out.println("dst::" + temp[3].indexOf('('));
-							//System.out.println("src::" + temp[2].indexOf('('));
 							String dstMAC = temp[3].trim().substring(temp[3].trim().indexOf('('));
 							String srcIP = temp[4].trim().substring(temp[4].trim().indexOf('('));
 							String dstIP = temp[5].trim().substring(temp[5].trim().indexOf('('));

@@ -34,13 +34,14 @@ public class GetAnalysis extends HttpServlet {
 		synchronized (dealJSON) {
 			JSONObject APMAC=new JSONObject();
 			APMAC.put("APMAC", Analysis.getAPMAC());
-			JSONArray anaResult = DealJSON.getAnaResultArray();
+			JSONArray anaResult =DealJSON.getAnaResultArray();
 			if (anaResult.size()>0) {
 				anaResult.add(APMAC);
 				System.out.println("--------------");
 				System.out.println(anaResult.toJSONString());
 				System.out.println("--------------");
 				out.write(anaResult.toJSONString());
+				anaResult.remove(anaResult.size()-1);
 			}
 		}
 	}
